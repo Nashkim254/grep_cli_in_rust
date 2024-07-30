@@ -2,8 +2,7 @@ use std::env;
 use std::process;
 use minigrep::Config;
 fn main() {
-    let args: Vec<String> = env::args().collect();
-    let conf = Config::new(&args).unwrap_or_else(|err| {
+    let conf = Config::new(env::args()).unwrap_or_else(|err| {
         println!("Problem parsing file: {}", err);
         process::exit(1)
     });
